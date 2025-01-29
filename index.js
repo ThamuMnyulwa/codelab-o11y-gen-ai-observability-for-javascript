@@ -10,6 +10,7 @@ auth.getProjectId().then(result => {
   });
 });
 
+// Fastify will allow us to get requests and handle responses
 const fastify = require('fastify')();
 const PORT = parseInt(process.env.PORT || '8080');
 
@@ -21,6 +22,7 @@ fastify.get('/', async function (request, reply) {
   reply.type('text/html').send(html);
 })
 
+// Its not a web server unless it is continuously listening
 fastify.listen({ host: '0.0.0.0', port: PORT }, function (err, address) {
   if (err) {
     console.error(err);
